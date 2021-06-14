@@ -1,3 +1,17 @@
+## Yuwei - Final version Instruction
+
+- Install the dependency
+
+  `npm install`
+
+- express server run on PORT 5000
+
+  `npm dev:server`
+
+- React client run on PORT 3000
+
+  `npm dev:client`
+
 ## Introduction:
 
 Believe it or not, Antra-React is a growing division within Antra Inc that is looking for fullstack front-end developers like yourself to help it scale to a be a billion dollar revenue division.
