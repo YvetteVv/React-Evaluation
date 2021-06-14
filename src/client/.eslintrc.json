@@ -1,0 +1,12 @@
+// ESLint config
+{
+    "plugins": [
+      // ...
+      "react-hooks"
+    ],
+    "rules": {
+      // ...
+      "react-hooks/rules-of-hooks": "error", // check Hook rules
+      "react-hooks/exhaustive-deps": "warn" // chck effect dependencies
+    }
+  }
