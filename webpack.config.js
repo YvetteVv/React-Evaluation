@@ -3,12 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: 'development',
-    entry: { index: path.resolve(__dirname, 'index.js') },
-    // output: {
-    //   filename: 'main.js',
-    //   path: path.resolve(__dirname, 'client','dist'),
-    //   publicPath: '/',
-    // },
+    // entry: { index: path.resolve(__dirname, 'src','client','index.js') },
+    entry: "./src/client/index.js",
     module: {
         rules: [
             {
@@ -27,7 +23,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './public/index.html',
+            template: './src/client/public/index.html',
             filename: './index.html',
         }),
     ],
