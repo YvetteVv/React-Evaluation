@@ -71,7 +71,7 @@ export function AgeCounter() {
                 <Table className={classes.table} aria-label='simple table'>
                     <TableHead>
                         <TableRow>
-                            <TableCell>Hobby</TableCell>
+                            <TableCell>Age</TableCell>
                             <TableCell align='right'>Count</TableCell>
                         </TableRow>
                     </TableHead>
