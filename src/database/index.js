@@ -36,11 +36,41 @@ const getHobbies = () => {
 const getListOfAgesOfUsersWith = (hobby) => {
   const dataAccessMethod = () => {
     // fill me in :) should return an arry of age count based on hobby.
-    return [
-      { age: 18, count: 2 },
-      { age: 12, count: 1 },
-    ];
+    const ageCounter = {} // HashMap
+    let result = [] // Final Result
+    // Get age by user name
+    const getAgeByUserName = (name) => {
+      // In this time do not consider the duplicate username
+      // Maybe we should know the userID in hobbiesOfUserByUsername and then we can avoid this problem
+      for (const index in db.usersById) {
+        if (db.usersById[index].username == name) {
+          return db.usersById[index].age
+        }
+      }
+      // if not find the username, do some exception here
+      return
+    }
+
+    // process
+    for(const key in db.hobbiesOfUserByUsername) {
+      const hobbyList = db.hobbiesOfUserByUsername[key]
+      if (hobbyList.indexOf(hobby) !== -1) {
+        const name = key
+        const age = getAgeByUserName(name)
+        if (age in ageCounter) {
+          ageCounter[age] += 1
+        }
+        else{
+          ageCounter[age] = 1
+        }
+      }
+    }
+    for (const userAge in ageCounter) {
+      result = [...result, {'age':userAge, 'count':ageCounter[userAge]}]
+    }
+    return result
   };
+  
   return mockDBCall(dataAccessMethod);
 };
 

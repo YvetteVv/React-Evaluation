@@ -2,7 +2,10 @@
 const mockDBCalls = require('../database/index.js');
 
 const getListOfAgesOfUsersWithHandler = async (request, response) => {
-  const hobbyToLookup = 'pc gaming';
+  // Due to it is a get method, we get the query from the request URL
+  // e.g. http://localhost:5000/users/age?hobby=pc gaming
+  const hobbyToLookup = request.query.hobby
+  // console.log(hobbyToLookup)
   const data = await mockDBCalls.getListOfAgesOfUsersWith(hobbyToLookup);
   return response.status(200).send(JSON.stringify(data));
 };
